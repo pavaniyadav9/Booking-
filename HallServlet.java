@@ -1,0 +1,2 @@
+package com.hallbooking.servlet;import com.hallbooking.dao.HallDAO;import jakarta.servlet.annotation.WebServlet;import jakarta.servlet.http.*;import java.io.*;
+@WebServlet("/halls") public class HallServlet extends HttpServlet{protected void doGet(HttpServletRequest q,HttpServletResponse s)throws IOException{try{q.setAttribute("halls",new HallDAO().all());q.getRequestDispatcher("halls.jsp").forward(q,s);}catch(Exception e){throw new IOException(e);}}}
